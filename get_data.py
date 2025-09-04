@@ -1,6 +1,13 @@
-#%% 
-import urllib.request
-import os
+# DS 5032
+# Assignment 1
+# Author: Luedtke, Terry
+# Email: epf7ch@virginia.edu
+
+import numpy as np
+import pandas as pd
+
+# %% 
+# Question 3
 
 def download_data(force=False):
     """Download and extract course data from Zenodo."""
@@ -27,12 +34,28 @@ def download_data(force=False):
     
     return data_dir
 
-#download_data()
+download_data()
 
 # %%
-import numpy as np
-import pandas as pd
+# Question 4
 
 df = pd.read_csv('data/metabric.csv')
 df
 # %%
+# Question 5
+
+print(df['Type of Breast Surgery'].value_counts())
+print(df['Overall Survival (Months)'].describe())
+
+# %%
+# Question 6
+"""
+The data could be used to determine at what ages women should be 
+screened for breast cancer. The ECDF (and related graphs) could show 
+when the age range of the highest rate of occurrence, and therefore
+the highest value for screening. However the data needs to be evaluated
+against general life expectancy data. In particular, the drop in 
+occurences after age 80 could be simply due to a reduced population,
+rather than a lower risk of breast cancer.
+"""
+
